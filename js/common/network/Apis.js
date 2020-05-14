@@ -1,17 +1,17 @@
-const baseUrl = "http://149.129.110.204:8888/clubRecruitment/";
+const baseUrl = "http://nomalocaris.top:8888/clubRecruitment/";
 
 function Apis() {}
 
 /**
  * 登录接口Api
  */
-Apis.getLoginUrl() = function () {
+Apis.getLoginUrl = function () {
   return baseUrl + "managerSide/login/";
 };
 
 /**
  * 注册接口Api
  */
-Apis.getRegisterUrl() = function () {
+Apis.getRegisterUrl = function () {
   return baseUrl + "managerSide/register/";
 };

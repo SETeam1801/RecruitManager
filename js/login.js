@@ -4,16 +4,18 @@ $(document).ready(function () {
     var password = $("#password").val();
     // TODO 判断数据是否合法
     NetworkHelper.post({
-      url: Api.getLoginUrl(),
+      url: Apis.getLoginUrl(),
       data: {
         userName: username,
         passWord: password,
       },
-      onSuccess: function (data) {
-        console.log(data);
+      onSuccess: function (result) {
+        console.log(result);
       },
-      onException(err) {},
-      onError(status) {
+      onException: function (err) {
+        console.log(err);
+      },
+      onError: function (status) {
         // TODO 判断status汇报错误
         console.log(status);
       },
