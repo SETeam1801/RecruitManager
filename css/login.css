@@ -48,6 +48,8 @@ body {
 .form-wrapper button {
   border: 0px;
   height: 83px;
+  background-color: rgb(222, 222, 222);
+  background-image: none;
 }
 
 /*
