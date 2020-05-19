@@ -1,0 +1,31 @@
+.personal-info-wrapper {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-left: 7%;
+}
+
+.personal-info {
+  width: 15vw;
+  height: 17vw;
+  margin: 10px;
+}
+
+.personal-img {
+  width: 15vw;
+  height: 15vw;
+  background-image: url("https://www.boycharse.top/head.png");
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+}
+
+.personal-name {
+  width: 15vw;
+  height: 2vw;
+  text-align: center;
+}
