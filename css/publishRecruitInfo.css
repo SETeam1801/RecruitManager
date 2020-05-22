@@ -1,0 +1,13 @@
+.publish-info-wrapper {
+  width: 86%;
+  margin: auto;
+  margin-top: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 13px;
+}
+
+.publish-info-wrapper div:not(.title-wrapper) {
+  margin-top: 12px;
+}
