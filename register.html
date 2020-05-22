@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>注册</title>
+    <link rel="shortcut icon" href="/img/ic_recruitment.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/register.css" />
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="js/jq/jquery.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="register-wrapper">
+            <div class="image-wapper">
+                <img class="logo" src="img/ic_recruitment.jpg" width="400px" height="400px" alt="加载失败" />
+                <div class="recruit-name">
+                    <p>招新通</p>
+                    <p>1.0</p>
+                </div>
+            </div>
+
+            <div class="form-wrapper">
+                <div class="welcome">
+                    <p>welcome!</p>
+                </div>
+
+                <div>
+                    <img src="img/学校标.png"></img>
+                    <input type="text" id="userSchool" autocomplete="off" placeholder="学校" />
+                </div>
+                <div>
+                    <img src="img/学号标.png"></img>
+                    <input type="text" id="userId" autocomplete="off" placeholder="学号" />
+                </div>
+                <div>
+                    <img src="img/登录密码标.png"></img>
+                    <input type="password" id="password" autocomplete="off" placeholder="密码" />
+                </div>
+                <div>
+                    <img src="img/确认密码标.png"></img>
+                    <input type="text" id="confirmPassword" autocomplete="off" placeholder="确认密码" />
+                </div>
+
+                <div>
+                    <button id="confirm">确定</button><button id="return">返回</button>
+                </div>
+            </div>
+        </div>
+</body>
+<script src="js/common/network/Apis.js"></script>
+<script src="js/common/network/NetworkHelper.js"></script>
+
+</html>

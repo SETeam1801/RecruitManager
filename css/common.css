@@ -1,0 +1,18 @@
+/*
+input的placeholder点击后不会自动消失，这里把input的
+获得焦点后，将其placeholder颜色设置为透明，实现点击后
+placeholder自动消失。
+*/
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+input:focus::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: transparent;
+}
+
+input:focus:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: transparent;
+}

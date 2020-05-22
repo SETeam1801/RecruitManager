@@ -1,0 +1,76 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    margin: auto;
+}
+
+.login-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 10%;
+}
+
+.recruit-name {
+    margin-top: 25px;
+}
+
+.recruit-name p {
+    text-align: center;
+}
+
+.form-wrapper {
+    color: #fff;
+    margin-left: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form-wrapper input,
+.form-wrapper button {
+    height: 10%;
+    color: #fff;
+    font-size: 22px;
+    background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+    padding: 18px;
+    text-align: center;
+}
+
+.form-wrapper button {
+    border: 0px;
+    height: 83px;
+    background-color: rgb(222, 222, 222);
+    background-image: none;
+}
+
+
+/*
+将界面的input中的placeholder修改为白色
+*/
+
+input::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #fff;
+    text-align: center;
+}
+
+input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #fff;
+    text-align: center;
+}
+
+input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: #fff;
+    text-align: center;
+}
