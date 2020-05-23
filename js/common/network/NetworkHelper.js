@@ -57,7 +57,7 @@ NetworkHelper.get = function (request) {
  * request: {
  * url:string 请求的地址
  * data:object 请求数据的对象
- * onSuccess(result): function 返回成功的回调函数（status == 200）
+ * onSuccess(result): function 返回成功的回调函数（status == 200） result是一个对象
  * onException(e): function 发生异常的回调函数
  * onError(status): function 发生错误的回调函数 status (status != 200)
  * headers:可添加请求头
