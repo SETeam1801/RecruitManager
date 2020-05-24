@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
     <link rel="stylesheet" href="\css/register.css" />
-    <script src="js/jq/jquery.js"></script>
 </head>
 
 <body>
@@ -47,12 +46,12 @@
 
                 <div class="line-wrapper">
                     <img src="/img/ic_password.png" alt="">
-                    <input id="passWord" type="text" placeholder="登陆密码" />
+                    <input id="passWord" type="password" placeholder="登陆密码" />
                 </div>
 
                 <div class="line-wrapper">
                     <img src="/img/ic_confirmPassword.png" alt="">
-                    <input id="checkPassWord" type="text" placeholder="确认密码" />
+                    <input id="checkPassWord" type="password" placeholder="确认密码" />
                 </div>
 
                 <div class="button-action">
@@ -62,6 +61,7 @@
             </div>
         </div>
 </body>
+<script src="js/jq/jquery.js"></script>
 <script src="/js/common/network/Apis.js"></script>
 <script src="/js/common/network/NetworkHelper.js"></script>
 <script src="/js/common/utils/TokenUtils.js"></script>
