@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
     <link rel="stylesheet" href="\css/register.css" />
+    <script src="js/jq/jquery.js"></script>
 </head>
 
 <body>
@@ -18,41 +19,40 @@
             </div>
 
             <div class="form-wrapper">
-                <div class="welcome">Welcome!</div>
-
+                <div id="msg" class="welcome">Welcome!</div>
                 <div class="line-wrapper">
                     <img src="/img/ic_register.png" alt="">
-                    <input type="text" placeholder="负责人姓名" />
+                    <input id="userName" type="text" placeholder="负责人姓名" />
                 </div>
 
                 <div class="line-wrapper">
                     <img src="/img/ic_school.png" alt="">
-                    <input type="text" placeholder="学校" />
+                    <input id="school" type="text" placeholder="学校" />
                 </div>
 
                 <div class="line-wrapper">
                     <img src="/img/ic_studentId.png" alt="">
-                    <input type="text" placeholder="学号" />
+                    <input id="stuId" type="text" placeholder="学号" />
                 </div>
 
                 <div class="line-wrapper">
                     <img src="/img/ic_communityName.png" alt="">
-                    <input type="text" placeholder="社团名" />
+                    <input id="clubName" type="text" placeholder="社团名" />
                 </div>
 
                 <div class="line-wrapper">
                     <img src="/img/ic_telephoneNumber.png" alt="">
-                    <input type="text" placeholder="联系电话" />
+                    <input id="phoNum" type="text" placeholder="联系电话" />
                 </div>
 
                 <div class="line-wrapper">
                     <img src="/img/ic_password.png" alt="">
-                    <input type="text" placeholder="登陆密码" />
+                    <input id="passWord" type="text" placeholder="登陆密码" />
                 </div>
 
                 <div class="line-wrapper">
                     <img src="/img/ic_confirmPassword.png" alt="">
-                    <input type="text" placeholder="确认密码" />
+                    <input id="checkPassWord" type="text" placeholder="确认密码" />
                 </div>
 
                 <div class="button-action">
@@ -62,5 +62,10 @@
             </div>
         </div>
 </body>
+<script src="/js/common/network/Apis.js"></script>
+<script src="/js/common/network/NetworkHelper.js"></script>
+<script src="/js/common/utils/TokenUtils.js"></script>
+<script src="/JS/common/Constant.js"></script>
+<script src="/js/register.js"></script>
 
 </html>

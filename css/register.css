@@ -117,3 +117,14 @@ div {
     background-color: rgb(112, 112, 112);
     text-align: center;
 }
+
+.error {
+    background: orangered;
+    color: #fff;
+    padding: 5px;
+    margin: 5px;
+}
+
+.normal {
+    background: white;
+}
