@@ -1,110 +1,130 @@
-html {
-    height: 100%;
-    width: 100%;
+/*
+input的placeholder点击后不会自动消失，这里把input的
+获得焦点后，将其placeholder颜色设置为透明，实现点击后
+placeholder自动消失。
+*/
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
 }
 
-body {
-    height: 100%;
-    width: 100%;
+input:focus::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: transparent;
+}
+
+input:focus:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: transparent;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+div {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 .container {
-    margin: auto;
+    width: 100vw;
+    height: 100vh;
 }
 
 .register-wrapper {
+    height: 100vh;
+    margin: auto;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    padding-top: 10%;
-}
-
-.recruit-name {
-    margin-top: 40px;
-}
-
-.recruit-name p {
     text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-wrapper {
+    align-items: center;
+}
+
+.logo {
+    background-image: url("/img/ic_recruitment.jpg");
+    width: 22vw;
+    height: 22vw;
+}
+
+.text {
+    font-weight: 500;
+    font-size: x-large;
+}
+
+.version {
+    font-weight: 500;
+    font-size: medium;
 }
 
 .form-wrapper {
-    color: rgb(1, 1, 1);
-    margin-left: 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.form-wrapper input,
-.form-wrapper button {
-    height: 10%;
-    color: rgb(1, 1, 1);
-    font-size: 22px;
-    background-color: rgb(222, 222, 222);
-    padding: 18px;
-    text-align: center;
-    display: inline-block;
-}
-
-.form-wrapper button {
-    border: 0px;
-    height: 10%;
-    background-color: rgb(222, 222, 222);
-    background-image: none;
-    display: inline-block;
-}
-
-#userSchool {
-    outline: none;
-    background-color: rgb(222, 222, 222);
-}
-
-#userId {
-    outline: none;
-    background-color: rgb(222, 222, 222);
-}
-
-#password {
-    outline: none;
-    background-color: rgb(222, 222, 222);
-    background-size: 50px 50px;
-}
-
-#confirmPassword {
-    outline: none;
-    background-color: rgb(222, 222, 222);
-    background-size: 50px 50px;
-}
-
-#register {
-    outline: none;
-    background-color: rgb(222, 222, 222);
-    background-size: 50px 50px;
+    margin-left: 10vw;
 }
 
 .welcome {
+    font-weight: 500;
+    font-size: larger;
+}
+
+.line-wrapper {
+    margin: 10px;
+    margin-top: 15px;
+    height: 40px;
+    display: flex;
+}
+
+.line-wrapper img {
+    width: 40px;
+    height: 40px;
+}
+
+.line-wrapper input {
+    height: 100%;
+    width: 20vw;
+    background-color: rgb(222, 222, 222);
+    border: 0px;
+    text-align: center;
+    display: inline-block;
+}
+
+.button-action {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-action button {
+    padding: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 17px;
+}
+
+#confirm {
+    background-color: green;
     text-align: center;
 }
 
-
-/*
-将界面的input中的placeholder修改为白色
-*/
-
-input::-webkit-input-placeholder {
-    /* WebKit browsers */
-    color: #fff;
+#cancle {
+    background-color: rgb(112, 112, 112);
     text-align: center;
 }
 
-input::-moz-placeholder {
-    /* Mozilla Firefox 19+ */
+.error {
+    background: orangered;
     color: #fff;
-    text-align: center;
+    padding: 5px;
+    margin: 5px;
 }
 
-input:-ms-input-placeholder {
-    /* Internet Explorer 10+ */
-    color: #fff;
-    text-align: center;
+.success {
+    background: green;
 }
