@@ -8,6 +8,93 @@
   padding: 13px;
 }
 
-.publish-info-wrapper div:not(.title-wrapper) {
-  margin-top: 12px;
+.publish-info-wrapper div {
+  margin-top: 20px;
+}
+
+input,
+textarea {
+  margin-left: 15px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  text-align: center;
+  width: 34vw;
+}
+
+div.item-container > div:not(.department-wrapper) {
+  width: 50%;
+}
+
+div.footnote-wrapper,
+div.standard-wrapper {
+  display: flex;
+}
+
+input.max-number,
+input.qq-wechat,
+input.end-time {
+  width: 33.5vw;
+}
+
+textarea#explain,
+textarea#standard {
+  text-align: start;
+  border-style: solid;
+  border-width: 1px;
+  margin-left: 15px;
+  margin-top: 0px;
+  height: 30vh;
+}
+
+textarea#explain {
+  width: 50vw;
+}
+
+div.label-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0px;
+}
+
+div.item-container {
+  display: flex;
+}
+
+div.width-wrapper {
+  display: inline-block;
+  width: 6em;
+  margin: auto;
+}
+
+div.department-wrapper {
+  margin: auto;
+}
+
+div.label-wrapper {
+  margin: auto;
+  width: 300px;
+}
+
+div.department-item {
+  margin-left: 15px;
+  background-color: ;
+  background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+  color: white;
+  padding: 6px;
+  font-size: 0.5em;
+}
+
+div.sumbit-wrapper {
+  margin-top: 10px;
+  margin-left: 87%;
+  height: 100px;
+}
+
+button {
+  color: white;
+  background-color: violet;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
 }
