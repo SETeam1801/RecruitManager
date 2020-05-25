@@ -131,9 +131,9 @@ function check_clubName(school) {
 
 //验证手机号
 function check_phoNum(phoNum) {
-    var regPhoNum = /[13,15,18]\d{9}/;
+    var regPhoNum = /[13,15,17,18,19]\d{9}/;
     if (!regPhoNum.test(phoNum)) {
-        msg.innerHTML = "手机号应由11位数字组成，且以13或15或18开头";
+        msg.innerHTML = "手机号应由11位数字组成，且以13/15/17/18/19开头";
         return false;
     } else {
         return true;
