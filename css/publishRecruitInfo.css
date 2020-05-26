@@ -1,3 +1,12 @@
+input,
+textarea {
+  outline: none;
+}
+
+textarea {
+  padding: 1em;
+}
+
 .publish-info-wrapper {
   width: 86%;
   margin: auto;
@@ -47,7 +56,7 @@ textarea#standard {
 }
 
 textarea#explain {
-  width: 50vw;
+  width: 33.5vw;
 }
 
 div.label-wrapper {
@@ -66,6 +75,10 @@ div.width-wrapper {
   margin: auto;
 }
 
+div.footnote-wrapper .width-wrapper {
+  margin: 0px;
+}
+
 div.department-wrapper {
   margin: auto;
 }
@@ -82,6 +95,7 @@ div.department-item {
   color: white;
   padding: 6px;
   font-size: 0.5em;
+  cursor: pointer;
 }
 
 div.sumbit-wrapper {
@@ -97,4 +111,49 @@ button {
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 5px;
+}
+
+.user-info-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-info {
+  width: 155px;
+  height: 50px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50px;
+  margin: 30px;
+  margin-right: 5%;
+  display: flex;
+}
+
+div.user-img {
+  background-color: rgb(222, 222, 222);
+  background-image: url("/img/ic_people.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+  border-radius: 50%;
+  align-self: center;
+}
+
+div#username {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+div.small-line {
+  height: 1px;
+  width: 90px;
+  background-color: black;
+}
+
+a {
+  color: white;
+  text-decoration-line: none;
 }
