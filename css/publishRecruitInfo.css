@@ -1,3 +1,12 @@
+input,
+textarea {
+  outline: none;
+}
+
+textarea {
+  padding: 1em;
+}
+
 .publish-info-wrapper {
   width: 86%;
   margin: auto;
@@ -8,6 +17,143 @@
   padding: 13px;
 }
 
-.publish-info-wrapper div:not(.title-wrapper) {
-  margin-top: 12px;
+.publish-info-wrapper div {
+  margin-top: 20px;
+}
+
+input,
+textarea {
+  margin-left: 15px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  text-align: center;
+  width: 34vw;
+}
+
+div.item-container > div:not(.department-wrapper) {
+  width: 50%;
+}
+
+div.footnote-wrapper,
+div.standard-wrapper {
+  display: flex;
+}
+
+input.max-number,
+input.qq-wechat,
+input.end-time {
+  width: 33.5vw;
+}
+
+textarea#explain,
+textarea#standard {
+  text-align: start;
+  border-style: solid;
+  border-width: 1px;
+  margin-left: 15px;
+  margin-top: 0px;
+  height: 30vh;
+}
+
+textarea#explain {
+  width: 33.5vw;
+}
+
+div.label-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0px;
+}
+
+div.item-container {
+  display: flex;
+}
+
+div.width-wrapper {
+  display: inline-block;
+  width: 6em;
+  margin: auto;
+}
+
+div.footnote-wrapper .width-wrapper {
+  margin: 0px;
+}
+
+div.department-wrapper {
+  margin: auto;
+}
+
+div.label-wrapper {
+  margin: auto;
+  width: 300px;
+}
+
+div.department-item {
+  margin-left: 15px;
+  background-color: ;
+  background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+  color: white;
+  padding: 6px;
+  font-size: 0.5em;
+  cursor: pointer;
+}
+
+div.sumbit-wrapper {
+  margin-top: 10px;
+  margin-left: 87%;
+  height: 100px;
+}
+
+button {
+  color: white;
+  background-color: violet;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
+}
+
+.user-info-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-info {
+  width: 155px;
+  height: 50px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50px;
+  margin: 30px;
+  margin-right: 5%;
+  display: flex;
+}
+
+div.user-img {
+  background-color: rgb(222, 222, 222);
+  background-image: url("/img/ic_people.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+  border-radius: 50%;
+  align-self: center;
+}
+
+div#username {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+div.small-line {
+  height: 1px;
+  width: 90px;
+  background-color: black;
+}
+
+a {
+  color: white;
+  text-decoration-line: none;
 }

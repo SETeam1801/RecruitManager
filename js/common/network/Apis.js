@@ -15,3 +15,14 @@ Apis.getLoginUrl = function () {
 Apis.getRegisterUrl = function () {
   return baseUrl + "managerSide/register/";
 };
+
+/**
+ * 获取部门的url
+ */
+Apis.getDeptUrl = function () {
+  return baseUrl + "managerSide/findDept/";
+};
+
+Apis.getPublishRecruitment = function () {
+  return baseUrl + "managerSide/editRecruitment/";
+};

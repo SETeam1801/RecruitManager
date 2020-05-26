@@ -1,74 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>发布招新信息</title>
-    <link rel="shortcut icon" href="/img/ic_recruitment.jpg" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="/img/ic_recruitment.jpg"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/publishRecruitInfo.css" />
-</head>
+    <script src="js/jq/jquery.js"></script>
+    <script src="/static/layDate-v5.0.9/laydate/laydate.js"></script>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="user-info-wrapper">
-            <div class="user-info"></div>
+      <div class="user-info-wrapper">
+        <div class="user-info">
+          <div class="user-img"></div>
+          <div class="user-name">
+            <div id="username">用户名</div>
+            <div class="small-line"></div>
+          </div>
         </div>
-        <div class="line"></div>
-        <div class="publish-info-wrapper">
-            <div class="title-wrapper">
-                <label for="title">标题<input type="text" class="title" id="title"
-          /></label>
+      </div>
+      <div class="line"></div>
+      <div class="publish-info-wrapper">
+        <div class="item-container">
+          <div class="department-wrapper">
+            <div class="name-wrapper">
+              招新部门 -> (请从下列选项中选择发布招新的部门)
             </div>
-            <div class="start-time-wrapper">
-                <label for="startTime">
-            开始时间
-            <input type="datetime-local" class="start-time" id="startTime" />
-          </label>
+            <div class="label-wrapper">
+              <!--
+<div class="department-item">
+                宣传部
+              </div>
+              <div class="department-item">
+                宣传部
+              </div>
+              <div class="department-item">
+                宣传部
+              </div>
+              <div class="department-item">
+                宣传部
+              </div>
+              <div class="department-item">
+                宣传部
+              </div>
+              <div class="department-item">
+                宣传部
+              </div>
+              -->
+              <div class="department-item">
+                <a href="/clubInfo.html">暂无部门,点击可前往添加部门</a>
+              </div>
             </div>
-            <div class="end-time-wrapper">
-                <label for="endTime">截止时间
-            <input type="datetime-local" class="end-time" id="endTime"
-          /></label>
-            </div>
-            <div class="number-wrapper">
-                <label for="number">招新人数 <input type="number" class="number" id="number"
-          /></label>
-            </div>
-            <div class="qq-wechat-wrapper">
-                <label for="qqWechat">
-            QQ/微信 群
-            <input type="text" class="qq-wechat" id="qqWechat" />
-          </label>
-            </div>
-            <div class="wheel-wrapper">
-                <label for="wheel">
-            考核轮数
-            <input type="number" class="wheel" id="wheel" />
-          </label>
-            </div>
-            <div class="max-number-wrapper">
-                <label for="maxNumber">
-            最大报名人数
-            <input type="number" class="max-number" id="maxNumber" />
-          </label>
-            </div>
-            <div class="standard-wrapper">
-                <label for="standard">
+          </div>
+        </div>
+        <div class="item-container">
+          <div class="start-time-wrapper">
+            <label for="startTime">
+              开始时间
+              <input type="text" class="start-time" id="startTime" />
+            </label>
+          </div>
+          <div class="end-time-wrapper">
+            <label for="endTime">
+              <div class="width-wrapper">
+                截止时间
+              </div>
+              <input type="text" class="end-time" id="endTime"
+            /></label>
+          </div>
+        </div>
+        <div class="item-container">
+          <div class="number-wrapper">
+            <label for="number"
+              >招新人数 <input type="text" class="number" id="number"
+            /></label>
+          </div>
+          <div class="qq-wechat-wrapper">
+            <label for="qqWechat">
+              <div class="width-wrapper">
+                QQ 群
+              </div>
+              <input type="text" class="qq-wechat" id="qqWechat" />
+            </label>
+          </div>
+        </div>
+        <div class="item-container height-wrapper">
+          <div class="wheel-wrapper">
+            <label for="wheel">
+              考核轮数
+              <input type="text" class="wheel" id="wheel" />
+            </label>
+          </div>
+          <div class="max-number-wrapper">
+            <label for="maxNumber">
+              <div class="width-wrapper">
+                最大报名人数
+              </div>
+              <input type="text" class="max-number" id="maxNumber" />
+            </label>
+          </div>
+        </div>
+        <div class="item-container">
+          <div class="standard-wrapper">
             考核标准
-            <input type="text" class="standard" id="standard" />
-          </label>
+            <textarea id="standard"></textarea>
+          </div>
+          <div class="footnote-wrapper">
+            <div class="width-wrapper">
+              补充说明
             </div>
-            <div class="footnote-wrapper">
-                <label for="footnote">
-            补充说明
-            <input type="text" class="footnote" id="footnote" />
-          </label>
-            </div>
+            <textarea id="explain"></textarea>
+          </div>
         </div>
+      </div>
+      <div class="sumbit-wrapper">
+        <button class="sumbit" id="sumbit">提交</button>
+      </div>
     </div>
-</body>
-
+  </body>
+  <script src="/js/common/network/Apis.js"></script>
+  <script src="/js/common/network/NetworkHelper.js"></script>
+  <script src="/js/common/utils/TokenUtils.js"></script>
+  <script src="/JS/common/Constant.js"></script>
+  <script src="/js/common/utils/TextUtils.js"></script>
+  <script src="/js/publishRecruitInfo.js"></script>
 </html>

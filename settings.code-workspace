@@ -1,0 +1,12 @@
+{
+  "folders": [
+	{
+		"name": "RecruitManager",
+		"path": "."
+	}
+],
+  "settings": {
+    "liveServer.settings.port": 5501,
+    "workbench.editor.showTabs": true
+  }
+}
