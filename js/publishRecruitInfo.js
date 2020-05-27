@@ -14,7 +14,36 @@ const ERROR_MAX_NUMBER = "最大报名人数错误！";
 
 var startTime = "";
 var endTime = "";
-var dept = "";
+var deptId = "";
+
+/**
+ * 显示部门以供选择
+ */
+function showDept(id, deptName) {
+  let html =
+    '<div class="department-item" id="' +
+    id +
+    '" onclick="select(this)">' +
+    deptName +
+    "</div>";
+  $("#departmentList").append(html);
+}
+
+function select(dept) {
+  let deptName = dept.innerHTML;
+  console.log("deptName:" + deptName);
+  deptId = dept.id;
+  $("#selectedDeptName").text("招新部门 -> " + deptName);
+}
+
+/**
+ * 没有未招新的部门
+ */
+function showNotDept() {
+  let html =
+    '<div class="department-item"><a href="/clubInfo.html">暂无部门,点击可前往添加部门</a></div>';
+  $("#departmentList").append(html);
+}
 
 $("document").ready(function () {
   // 加载用户名
@@ -25,6 +54,41 @@ $("document").ready(function () {
   $("#username").text(user.userName);
 
   // TODO 获取未招新的部门
+  NetworkHelper.get({
+    url: Apis.getDeptUrl(),
+    headers: {
+      AUTHORIZATION: "Bearer " + TokenUtils.getToken(),
+    },
+    onSuccess: function (result) {
+      if (result != null) {
+        if (result.code == 100) {
+          let haveDept = false;
+          for (let temp of result.data) {
+            console.log(temp);
+            if (temp.status == 0) {
+              console.log(temp.deptId + ":" + temp.deptName);
+              showDept(temp.deptId, temp.deptName);
+              haveDept = true;
+            }
+          }
+          if (!haveDept) {
+            showNotDept();
+          }
+        } else {
+          alert(result.message);
+        }
+      }
+    },
+    onError: function (status) {
+      console.log(status);
+    },
+    onException: function (e) {
+      console.log(e);
+    },
+    onComplete: function (status) {
+      console.log(status);
+    },
+  });
 
   // 提交的点击时间
   $("#sumbit").click(function () {
@@ -49,6 +113,15 @@ $("document").ready(function () {
     } else if (TextUtils.isEmpty(maxNum) || !TextUtils.checkNumber(maxNum)) {
       alert(ERROR_MAX_NUMBER);
     } else {
+      // TODO 上传发布招新信息
+      // 要将id转为int
+      /*
+      uploadPublishRecruitment({
+        startTime:startTime,
+        endTime:endTime,
+        deptId:deptId
+      });
+      */
     }
   });
 });
