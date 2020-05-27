@@ -83,8 +83,6 @@ $(document).ready(function() {
     });
 });
 
-
-
 //验证负责人姓名
 function check_userName(userName) {
     var regUserName = /[\u4e00-\u9fa5]{2,10}/

@@ -1,6 +1,6 @@
 document.write('<link rel="stylesheet" href="/dialog/css/infoDialog.css" />');
 document.write(
-  '<div class="dialog-background" id="infoDialogBg">' +
+    '<div class="dialog-background" id="infoDialogBg">' +
     '<div class="info-dialog">' +
     '<div class="title-wrapper">' +
     '<div class="info-title">部门</div>' +
@@ -29,39 +29,39 @@ document.write(
  * }
  */
 function InfoDialog(op) {
-  this.onError = op.onError;
+    this.onError = op.onError;
 
-  this.onSuccess = op.onSuccess;
+    this.onSuccess = op.onSuccess;
 
-  this.show = function () {
-    document.getElementById("infoDialogBg").style.display = "block";
-  };
+    this.show = function() {
+        document.getElementById("infoDialogBg").style.display = "block";
+    };
 
-  let thisDialog = this;
+    let thisDialog = this;
 
-  document.getElementById("titleEdit").value = "";
-  document.getElementById("contentEdit").value = "";
+    document.getElementById("titleEdit").value = "";
+    document.getElementById("contentEdit").value = "";
 
-  document.getElementById("infoDialogConfig").onclick = function () {
-    let title = document.getElementById("titleEdit").value;
+    document.getElementById("infoDialogConfig").onclick = function() {
+        let title = document.getElementById("titleEdit").value;
 
-    let content = document.getElementById("contentEdit").value;
+        let content = document.getElementById("contentEdit").value;
 
-    if (title == null || title == "") {
-      thisDialog.onError("部门不能为空！");
-      return;
-    }
+        if (title == null || title == "") {
+            thisDialog.onError("部门不能为空！");
+            return;
+        }
 
-    if (content == null || content == "") {
-      thisDialog.onError("简介不能为空！");
-      return;
-    }
-    console.log(this);
-    thisDialog.onSuccess(title, content);
-    document.getElementById("infoDialogBg").style.display = "none";
-  };
+        if (content == null || content == "") {
+            thisDialog.onError("简介不能为空！");
+            return;
+        }
+        console.log(this);
+        thisDialog.onSuccess(title, content);
+        document.getElementById("infoDialogBg").style.display = "none";
+    };
 
-  document.getElementById("infoDialogCancel").onclick = function () {
-    document.getElementById("infoDialogBg").style.display = "none";
-  };
+    document.getElementById("infoDialogCancel").onclick = function() {
+        document.getElementById("infoDialogBg").style.display = "none";
+    };
 }
