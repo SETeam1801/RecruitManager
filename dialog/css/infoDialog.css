@@ -1,0 +1,74 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border-style: none;
+}
+
+div.dialog-background {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: black;
+  opacity: 0.5;
+  top: 0px;
+  left: 0px;
+}
+
+div.info-dialog {
+  padding: 1em;
+  width: 45vw;
+  position: sticky;
+  left: 25%;
+  top: 15%;
+  background-color: white;
+  border-radius: 10px;
+}
+div.title-wrapper {
+  display: flex;
+  margin: 2em;
+}
+
+div.content-wrapper {
+  display: flex;
+  margin: 2em;
+}
+
+div.action-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 2em;
+}
+
+div.title-input > input.title-edit {
+  border-style: solid;
+  border-width: 1px;
+  margin-left: 2vw;
+  width: 35vw;
+  padding: 1em;
+}
+
+div.content-input > textarea.content-edit {
+  border-style: solid;
+  border-width: 1px;
+  margin-left: 2vw;
+  width: 35vw;
+  height: 35vh;
+  padding: 1em;
+  text-indent: 2em;
+}
+
+#infoDialogConfig {
+  background-color: blue;
+  color: white;
+  padding: 6px;
+  border-radius: 20px;
+}
+
+#infoDialogCancel {
+  margin-top: 10px;
+  background-color: rgb(222, 222, 222);
+  color: white;
+  padding: 6px;
+  border-radius: 20px;
+}

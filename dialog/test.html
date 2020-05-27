@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+    <script src="/dialog/js/infoDialog.js"></script>
+  </head>
+  <body>
+    <!--
+<div class="dialog-background" id="infoDialogBg">
+      <div class="info-dialog">
+        <div class="title-wrapper">
+          <div class="info-title">标题</div>
+          <div class="title-input">
+            <input type="text" class="title-edit" id="titleEdit" />
+          </div>
+        </div>
+        <div class="content-wrapper">
+          <div class="info-content">内容</div>
+          <div class="content-input">
+            <textarea class="content-edit" id="contentEdit"></textarea>
+          </div>
+        </div>
+        <div class="action-wrapper">
+          <button id="infoDialogConfig">确定</button>
+          <button id="infoDialogCancel">取消</button>
+        </div>
+      </div>
+    </div>
+      -->
+    <button id="test">test</button>
+  </body>
+  <script>
+    let dialog = new InfoDialog({
+      onSuccess: function (title, content) {
+        alert(title + " and " + content);
+      },
+      onError: function (msg) {
+        alert(msg);
+      },
+    });
+    dialog.show();
+  </script>
+</html>
