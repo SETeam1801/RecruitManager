@@ -1,0 +1,43 @@
+/*
+右上角user样式
+*/
+
+.user-info-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-info {
+  width: 155px;
+  height: 50px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50px;
+  margin: 30px;
+  margin-right: 5%;
+  display: flex;
+}
+
+div.user-img {
+  background-color: rgb(222, 222, 222);
+  background-image: url("/img/ic_people.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+  border-radius: 50%;
+  align-self: center;
+}
+
+div#username {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+div.small-line {
+  height: 1px;
+  width: 90px;
+  background-color: black;
+}

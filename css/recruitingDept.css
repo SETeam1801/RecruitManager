@@ -1,0 +1,22 @@
+div.title {
+  font-size: 4em;
+  margin-top: 10vh;
+  text-align: center;
+}
+
+.list-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+}
+
+.list-item {
+  margin: auto;
+  margin-top: 2vh;
+  color: white;
+  background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+  padding: 1vh;
+  width: 70vw;
+  border-radius: 3vh;
+  cursor: pointer;
+}
