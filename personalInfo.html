@@ -12,26 +12,39 @@
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/personalInfo.css" />
+    <link rel="stylesheet" href="/css/userInfo.css" />
+    <script src="/js/jq/jquery.js"></script>
   </head>
 
   <body>
-    <div class="user-info-wrapper">
-      <div class="user-info"></div>
-    </div>
-    <div class="line"></div>
-    <div class="personal-info-wrapper">
-      <div class="personal-info" id="test">
-        <div class="personal-img"></div>
-        <div class="personal-name">辜先生</div>
+    <div class="container">
+      <div class="user-info-wrapper">
+        <div class="user-info">
+          <div class="user-img"></div>
+          <div class="user-name">
+            <div id="username">用户名</div>
+            <div class="small-line"></div>
+          </div>
+        </div>
       </div>
-      <div class="personal-info">
-        <div class="personal-img"></div>
-        <div class="personal-name"></div>
+      <div class="line"></div>
+      <div class="personal-info-wrapper">
+        <div class="personal-info" id="test">
+          <div class="personal-img"></div>
+          <div class="personal-name">辜先生</div>
+        </div>
+        <div class="personal-info">
+          <div class="personal-img"></div>
+          <div class="personal-name"></div>
+        </div>
       </div>
     </div>
   </body>
   <script src="/js/jq/jquery.js"></script>
   <script src="/js/common/network/Apis.js"></script>
+  <script src="/js/common/Constant.js"></script>
   <script src="/js/common/network/NetworkHelper.js"></script>
-  <script src="/js/personalInfo.js"></script>
+  <script src="/js/personalInfo/personalInfoView.js"></script>
+  <script src="/js/personalInfo/personalInfoModel.js"></script>
+  <script src="/js/personalInfo/personalInfoController.js"></script>
 </html>
