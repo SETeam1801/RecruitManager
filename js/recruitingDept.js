@@ -8,8 +8,9 @@ $("document").ready(function () {
       if (result != null) {
         if (result.code == 100) {
           let isRecruiting = false;
-          for (let temp in result.data) {
+          for (let temp of result.data) {
             if (temp.status == 1) {
+              console.log("正在招新的部门：" + temp.deptName);
               showRecruitingDept(temp.deptId, temp.deptName);
               isRecruiting = true;
             }
@@ -39,6 +40,7 @@ function showRecruitingDept(deptId, deptName) {
     '" onclick="jump(this)">' +
     deptName +
     "</button>";
+  $("#list").append(html);
 }
 
 /**

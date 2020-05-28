@@ -8,9 +8,9 @@ div.dialog-background {
     display: none;
     width: 100vw;
     height: 100vh;
-    position: sticky;
+    position: absolute;
     background-color: black;
-    opacity: 0.5;
+    opacity: 0.8;
     top: 0px;
     left: 0px;
 }

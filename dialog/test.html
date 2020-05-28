@@ -36,6 +36,9 @@
 </body>
 <script>
     let dialog = new InfoDialog({
+        haveTitle: true,
+        titleName: "标题",
+        contentName: "内容",
         onSuccess: function(title, content) {
             alert(title + " and " + content);
         },

@@ -17,7 +17,7 @@ TextUtils.isEmpty = function (str) {
  * 返回值 true 是数字 false不是数字
  */
 TextUtils.checkNumber = function (str) {
-  var rex = /^[0-9]n+$/;
+  var rex = /[0-9]+/;
 
   if (rex.test(rex)) {
     return true;

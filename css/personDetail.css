@@ -1,0 +1,75 @@
+#back {
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: blue;
+  color: white;
+  margin: 3vw;
+  margin-bottom: 2vw;
+  cursor: pointer;
+}
+
+div.person-wrapper {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+div.person-img {
+  background-image: url("/img/blood_cells.jpeg");
+  width: 10vw;
+  height: 10vw;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+div.small {
+  background-color: rgb(222, 222, 222);
+  text-align: center;
+  color: white;
+  margin-top: 2vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+}
+
+div.big {
+  background-color: rgb(222, 222, 222);
+  width: 35vw;
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+  font-size: 1.5vw;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+}
+
+div.space {
+  background-color: #ffffff;
+  height: 3vh;
+}
+
+div.desc {
+  margin-left: 6vw;
+  padding: 1em;
+  color: white;
+  background-color: rgb(222, 222, 222);
+  margin-top: 32px;
+}
+
+div.basic-info-wrapper {
+  display: flex;
+  margin-left: 5vw;
+  width: 75vw;
+  justify-content: space-around;
+}
+
+#refuse {
+  background-color: blue;
+  cursor: pointer;
+}
+
+#delete {
+  background-color: red;
+  cursor: pointer;
+}

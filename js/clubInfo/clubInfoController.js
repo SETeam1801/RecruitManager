@@ -62,7 +62,29 @@ var controller = {
      * 获取社团信息
      */
     getClubInfo: function() {
-        //接口
+        NetworkHelper.post({
+            url: Apis.getUploadClubDesc(),
+            headers: {
+                AUTHORIZATION: "Bearer " + TokenUtils.getToken(),
+            },
+            data: {
+                desc: clubDesc,
+            },
+            onSuccess: function(result) {
+                if (result != null && result.code == 100) {
+                    alert("编辑社团简介成功");
+                    clubInfoView.showClubDesc("#desc", result.desc);
+                } else {
+                    alert(result.message);
+                }
+            },
+            onException: function(err) {
+                console.log(err);
+            },
+            onError: function(status) {
+                console.log(status);
+            },
+        });
         //信息
         //修改排版
     },
