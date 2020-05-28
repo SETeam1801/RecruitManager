@@ -1,15 +1,15 @@
 document.write('<link rel="stylesheet" href="/dialog/css/infoDialog.css" />');
 document.write(
-    '<div class="dialog-background" id="infoDialogBg">' +
+  '<div class="dialog-background" id="infoDialogBg">' +
     '<div class="info-dialog">' +
-    '<div class="title-wrapper">' +
-    '<div class="info-title">部门</div>' +
+    '<div class="title-wrapper" id="titleWrapper">' +
+    '<div class="info-title" id="infoTitle">部门</div>' +
     '<div class="title-input">' +
     '<input type="text" class="title-edit" id="titleEdit" />' +
     "</div>" +
     "</div>" +
     '<div class="content-wrapper">' +
-    '<div class="info-content">简介</div>' +
+    '<div class="info-content" id="infoContent">简介</div>' +
     '<div class="content-input">' +
     '<textarea class="content-edit" id="contentEdit"></textarea>' +
     "</div>" +
@@ -29,39 +29,51 @@ document.write(
  * }
  */
 function InfoDialog(op) {
-    this.onError = op.onError;
+  this.onError = op.onError;
 
-    this.onSuccess = op.onSuccess;
+  this.onSuccess = op.onSuccess;
 
-    this.show = function() {
-        document.getElementById("infoDialogBg").style.display = "block";
-    };
+  this.show = function () {
+    document.getElementById("infoDialogBg").style.display = "block";
+  };
 
-    let thisDialog = this;
+  let thisDialog = this;
 
-    document.getElementById("titleEdit").value = "";
-    document.getElementById("contentEdit").value = "";
+  if (op.haveTitle != null && !op.haveTitle) {
+    document.getElementById("titleWrapper").style.display = "none";
+  }
 
-    document.getElementById("infoDialogConfig").onclick = function() {
-        let title = document.getElementById("titleEdit").value;
+  if (op.titleName != null) {
+    document.getElementById("infoTitle").innerText = op.titleName;
+  }
 
-        let content = document.getElementById("contentEdit").value;
+  if (op.contentName != null) {
+    document.getElementById("infoContent").innerText = op.contentName;
+  }
 
-        if (title == null || title == "") {
-            thisDialog.onError("部门不能为空！");
-            return;
-        }
+  document.getElementById("titleEdit").value = "";
+  document.getElementById("contentEdit").value = "";
 
-        if (content == null || content == "") {
-            thisDialog.onError("简介不能为空！");
-            return;
-        }
-        console.log(this);
-        thisDialog.onSuccess(title, content);
-        document.getElementById("infoDialogBg").style.display = "none";
-    };
+  document.getElementById("infoDialogConfig").onclick = function () {
+    let title = document.getElementById("titleEdit").value;
 
-    document.getElementById("infoDialogCancel").onclick = function() {
-        document.getElementById("infoDialogBg").style.display = "none";
-    };
+    let content = document.getElementById("contentEdit").value;
+
+    if (title == null || title == "") {
+      thisDialog.onError("部门不能为空！");
+      return;
+    }
+
+    if (content == null || content == "") {
+      thisDialog.onError("简介不能为空！");
+      return;
+    }
+    console.log(this);
+    thisDialog.onSuccess(title, content);
+    document.getElementById("infoDialogBg").style.display = "none";
+  };
+
+  document.getElementById("infoDialogCancel").onclick = function () {
+    document.getElementById("infoDialogBg").style.display = "none";
+  };
 }

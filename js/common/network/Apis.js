@@ -23,6 +23,20 @@ Apis.getDeptUrl = function () {
   return baseUrl + "managerSide/findDept/";
 };
 
+/**
+ * 发布招新信息的url
+ */
 Apis.getPublishRecruitment = function () {
   return baseUrl + "managerSide/editRecruitment/";
+};
+
+/**
+ * 获取报名人员列表
+ */
+Apis.getEnrollUrl = function () {
+  return baseUrl + "managerSide/findApps/";
+};
+
+Apis.getDetailUrl = function () {
+  return baseUrl + "managerSide/findStu/";
 };

@@ -97,8 +97,8 @@ $("document").ready(function () {
     let wheel = $("#wheel").val();
     let maxNum = $("#maxNumber").val();
     let standard = $("#standard").val();
-    let explain = $("explain").val();
-    if (TextUtils.isEmpty(dept)) {
+    let explain = $("#explain").val();
+    if (TextUtils.isEmpty(deptId)) {
       alert(ERROR_DEPT);
     } else if (TextUtils.isEmpty(startTime)) {
       alert(ERROR_START_TIME);
@@ -115,13 +115,18 @@ $("document").ready(function () {
     } else {
       // TODO 上传发布招新信息
       // 要将id转为int
-      /*
+      let id = parseInt(deptId);
       uploadPublishRecruitment({
-        startTime:startTime,
-        endTime:endTime,
-        deptId:deptId
+        startTime: startTime,
+        endTime: endTime,
+        deptId: id,
+        qq: qq,
+        times: parseInt(wheel),
+        maxNum: parseInt(maxNum),
+        recruitNum: parseInt(num),
+        standard: standard,
+        add: explain,
       });
-      */
     }
   });
 });
@@ -131,6 +136,7 @@ $("document").ready(function () {
  * @param {object} data 上传的数据
  */
 function uploadPublishRecruitment(data) {
+  console.log(JSON.stringify(data));
   NetworkHelper.post({
     url: Apis.getPublishRecruitment(),
     data: data,

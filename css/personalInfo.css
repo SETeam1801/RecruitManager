@@ -17,6 +17,7 @@
 .personal-img {
   width: 15vw;
   height: 15vw;
+  border-radius: 50%;
   background-image: url("https://www.boycharse.top/head.png");
   background-size: 100% 100%;
   -moz-background-size: 100% 100%;
@@ -28,4 +29,14 @@
   width: 15vw;
   height: 2vw;
   text-align: center;
+}
+
+div.no-personal {
+  text-align: center;
+  padding: 10%;
+  display: none;
+}
+
+div.no-personal div.no-personal-tip {
+  margin-top: 40px;
 }

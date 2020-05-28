@@ -1,6 +1,11 @@
 var i = 0;
 
 $(document).ready(function () {
+  // 获取查看社团的id
+  let id = model.getDeptId();
+  // 获取社团列表
+  model.getEnrollPersonInfo(id);
+
   let user = model.getUser();
   if (user != null) {
     let userName = user.userName;
@@ -13,4 +18,6 @@ $(document).ready(function () {
     i++;
     console.log("click");
   });
+
+  console.log(window.location.href);
 });
