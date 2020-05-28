@@ -1,6 +1,5 @@
 const msg = document.getElementById("msg");
 
-
 $(document).ready(function() {
     $("#confirm").click(function() {
         var userName = $("#userName").val();
@@ -36,7 +35,9 @@ $(document).ready(function() {
                 },
 
                 onSuccess: function(result) {
-                    if (result != null && result.code == 100) {
+                    if (result != null && result.code == 201) {
+                        alert("该手机号码已经被注册");
+                    } else if (result != null && result.code == 100) {
                         let data = result.data;
                         if (data != null) {
                             // 保存token

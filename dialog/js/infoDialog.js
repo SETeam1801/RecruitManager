@@ -11,7 +11,7 @@ document.write(
     '<div class="content-wrapper">' +
     '<div class="info-content">简介</div>' +
     '<div class="content-input">' +
-    '<textarea class="content-edit" id="contentEdit"></textarea>' +
+    '<textarea class="content-edit" id="contentEdit" maxlength="5000"></textarea> ' +
     "</div>" +
     "</div>" +
     '<div class="action-wrapper">' +

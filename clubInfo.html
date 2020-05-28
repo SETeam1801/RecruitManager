@@ -17,11 +17,9 @@
                     <p id="clubName"></p>
                 </div>
 
-                <textarea type="text" id="desc">社团简介：</textarea>
-                <textarea type="text" id="1">部门简介：</textarea>
-
-                <div></div>
-
+                <div class="cards-wrapper" id="card-wrapper">
+                    <textarea type="text" id="desc" maxlength="5000" readonly></textarea>
+                </div>
             </div>
 
             <div class="right-wrapper">
@@ -34,16 +32,16 @@
                     <p>功能列表</p>
                     <button id="addClubInfo">编辑社团简介</button>
 
-                    <button id="addClubDeptInfo">添加部门信息</button>
+                    <button id="addClubDeptInfo">添加部门</button>
                     <button id="changeClubDeptInfo">修改部门</button>
                     <button id="deleteClubDeptInfo">删除部门</button>
 
                     <button id="addImg">添加图片</button>
                     <button id="deleteImg">删除图片</button>
 
-                    <button id="addRecruitInfo">发布招新通知</button>
-                    <button id="changeRecruitInfo">修改招新通知</button>
-                    <button id="deleteRecruitInfo">删除招新通知</button>
+                    <button id="addRecruitInfo">发布招新信息</button>
+                    <button id="changeRecruitInfo">修改招新信息</button>
+                    <button id="deleteRecruitInfo">删除招新信息</button>
                 </div>
             </div>
         </div>
@@ -56,7 +54,7 @@
 <script src="/js/common/utils/TokenUtils.js"></script>
 <script src="/js/clubInfo/clubInfoView.js"></script>
 <script src="/js/clubInfo/clubInfoController.js"></script>
-<script src="/js/clubInfo/clubInfoModel.js"></script>
+<script src="/js/common/Constant.js"></script>
 <script src="/dialog/js/infoDialog.js"></script>
 
 </html>

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>test</title>
     <script src="/dialog/js/infoDialog.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <!--
 <div class="dialog-background" id="infoDialogBg">
       <div class="info-dialog">
@@ -30,16 +32,18 @@
     </div>
       -->
     <button id="test">test</button>
-  </body>
-  <script>
+
+</body>
+<script>
     let dialog = new InfoDialog({
-      onSuccess: function (title, content) {
-        alert(title + " and " + content);
-      },
-      onError: function (msg) {
-        alert(msg);
-      },
+        onSuccess: function(title, content) {
+            alert(title + " and " + content);
+        },
+        onError: function(msg) {
+            alert(msg);
+        },
     });
     dialog.show();
-  </script>
+</script>
+
 </html>
