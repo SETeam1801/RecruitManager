@@ -1,4 +1,22 @@
-var i = 0;
+var peopleCache = null;
+
+var controller = {
+  /**
+   * 发送邮件
+   * @param {object} mail
+   */
+  sendMail: function (mail) {
+    let deptId = model.getDeptId();
+    let detailMail = {
+      deptId: parseInt(deptId),
+      passTitle: mail.passTitle,
+      passBody: mail.passBody,
+      failTitle: mail.failTitle,
+      failBody: mail.failBody,
+    };
+    model.sendMail(detailMail);
+  },
+};
 
 $(document).ready(function () {
   // 获取查看社团的id
@@ -13,11 +31,17 @@ $(document).ready(function () {
       view.showUserName(userName);
     }
   }
-  $("#test").click(function () {
-    view.showPersonalInfo(i, "https://www.boycharse.top/head.png", "路人甲");
-    i++;
-    console.log("click");
+
+  $("#sendMail").click(function () {
+    view.showMailDialog();
   });
 
-  console.log(window.location.href);
+  $("#nextRound").click(function () {
+    let isEnter = confirm(
+      "确定要进入下一轮吗？您是否已经发邮件通知学生了？可以点击发送邮件功能通知学生考核情况，然后再进入下一轮！"
+    );
+    if (isEnter) {
+      model.nextRound();
+    }
+  });
 });
