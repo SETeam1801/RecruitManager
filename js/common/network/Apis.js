@@ -1,4 +1,4 @@
-const baseUrl = "http://nomalocaris.top:8080/clubRecruitment/";
+const baseUrl = "https://re.boycharse.top/clubRecruitment/";
 
 function Apis() {}
 
@@ -53,4 +53,11 @@ Apis.getUploadClubDesc = function() {
  */
 Apis.getDeleteDept = function() {
     return baseUrl + "managerSide/deleteDept/";
+}
+
+/**
+ * 获取 获取社团信息的url
+ */
+Apis.getClubInfo = function() {
+    return baseUrl + "managerSide/clubInfo/";
 }

@@ -19,14 +19,7 @@ $(document).ready(function() {
     });
 
     $("#addClubInfo").click(function() {
-        //TODO等啊墉的新的弹窗
-        if (1) {
-            controller.uploadClubDesc();
-        } else {
-
-        }
-
-        //clubInfoView.showClubDesc();
+        clubInfoView.showAddClubDialog();
     });
 
     $("#addRecruitInfo").click(function() {
@@ -34,14 +27,11 @@ $(document).ready(function() {
     });
 
     /*
-        
-
         clubInfoView.showDeptCard({
             deptName: "前端组",
             deptDesc: "test test test",
             id: 1,
         });
-
         $("#deleteClubDeptInfo").click(function() {
             clubInfoView.showDeleteDeptDialog(1, "部门1");
         });
@@ -63,17 +53,21 @@ var controller = {
      */
     getClubInfo: function() {
         NetworkHelper.post({
-            url: Apis.getUploadClubDesc(),
+            url: Apis.getClubInfo(),
             headers: {
                 AUTHORIZATION: "Bearer " + TokenUtils.getToken(),
             },
-            data: {
-                desc: clubDesc,
-            },
             onSuccess: function(result) {
                 if (result != null && result.code == 100) {
-                    alert("编辑社团简介成功");
-                    clubInfoView.showClubDesc("#desc", result.desc);
+                    clubInfoView.showClubDesc("#desc", result.clubDesc);
+                    for (i = 0; i < result.data.clubPictureUrl.length; i++) {
+                        //TODO creat picture
+                    }
+                    for (i = 0; i < result.data.dept.length; i++) {
+                        clubInfoView.showDeptCard(result.data.dept[i].deptName, result.data.dept[i].deptDesc, result.data.dept[i].deptId);
+                    }
+                    //展示招新信息
+
                 } else {
                     alert(result.message);
                 }
@@ -90,7 +84,7 @@ var controller = {
     },
 
     /**
-     * 社团简介信息上传(还在写)
+     * 社团简介信息上传
      */
     uploadClubDesc: function() {
         var clubDesc = $("#desc").val();

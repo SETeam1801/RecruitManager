@@ -4,26 +4,46 @@ var clubInfoView = {
      * 
      */
     showClubDesc: function(id, desc) {
-        //传入弹窗输入的信息
-        //这里要改，如果没有找到id，那么就自己添加代码进去
-        //找到了，它的text变成desc就好了
-        //id的名字叫desc，根据getelementbyid判断是否已经有了社团简介的卡片
-        document.getElementById(id)
-        $(id).text(desc);
+        var element = document.getElementById(id)
+        if (element != null) {
+            $(id).text(desc);
+        } else {
+            if (desc != undefined) {
+                var html =
+                    '<textarea type="text" id="' +
+                    id +
+                    '" cols="30" rows="10" maxlength="5000" readonly>' +
+                    desc +
+                    '</textarea>';
+                $("#card-wrapper").append(html);
+            }
+        }
+
     },
 
     /**
      * 展示编辑社团简介的弹窗
      */
     showAddClubDialog: function() {
-
+        let dialog = new InfoDialog({
+            haveTitle: false,
+            titleName: "标题",
+            contentName: "社团简介",
+            onSuccess: function(title, content) {
+                controller.uploadClubDesc(content); //上传给后台,并展示卡片
+            },
+            onError: function(msg) {
+                alert(msg); //这里说要写标题
+            },
+        });
+        dialog.show();
     },
     /**
      * 展示社团负责人头像
      * @param {headImg:string(url) } headImg 社团负责人头像
      */
     showHeadImg: function(headImg) { ///TODO我们还没有上传头像的功能
-        document.getElementById("headImg").src = headImg;
+        document.getElementById("#headImg").src = headImg;
     },
 
     /**
@@ -34,17 +54,20 @@ var clubInfoView = {
      * 展示部门简介
      */
     showDeptCard: function(deptName, deptDesc, id) {
-        var html =
-            '<textarea type="text" id="' +
-            deptName +
-            '" name="' +
-            id +
-            '" cols="30" rows="10" maxlength="5000" readonly>' +
-            deptName +
-            ":" +
-            deptDesc +
-            '</textarea>';
-        $("#card-wrapper").append(html);
+        if (deptName != undefined) {
+            var html =
+                '<textarea type="text" id="' +
+                deptName +
+                '" name="' +
+                id +
+                '" cols="30" rows="10" maxlength="5000" readonly>' +
+                deptName +
+                ":" +
+                deptDesc +
+                '</textarea>';
+            $("#card-wrapper").append(html);
+
+        }
     },
 
     /**
@@ -61,6 +84,9 @@ var clubInfoView = {
      */
     showAddDeptDialog: function() {
         let dialog = new InfoDialog({
+            haveTitle: true,
+            titleName: "部门",
+            contentName: "部门简介",
             onSuccess: function(title, content) {
                 controller.addDept(title, content);
             },
