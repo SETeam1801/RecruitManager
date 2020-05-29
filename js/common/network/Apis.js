@@ -5,38 +5,52 @@ function Apis() {}
 /**
  * 登录接口Api
  */
-Apis.getLoginUrl = function () {
-  return baseUrl + "managerSide/login/";
+Apis.getLoginUrl = function() {
+    return baseUrl + "managerSide/login/";
 };
 
 /**
  * 注册接口Api
  */
-Apis.getRegisterUrl = function () {
-  return baseUrl + "managerSide/register/";
+Apis.getRegisterUrl = function() {
+    return baseUrl + "managerSide/register/";
 };
 
 /**
  * 获取部门的url
  */
-Apis.getDeptUrl = function () {
-  return baseUrl + "managerSide/findDept/";
+Apis.getDeptUrl = function() {
+    return baseUrl + "managerSide/findDept/";
+};
+
+Apis.getPublishRecruitment = function() {
+    return baseUrl + "managerSide/editRecruitment/";
 };
 
 /**
- * 发布招新信息的url
+ * 获取上传社团简介信息的url
  */
-Apis.getPublishRecruitment = function () {
-  return baseUrl + "managerSide/editRecruitment/";
-};
+Apis.getUploadClubDesc = function() {
+    return baseUrl + "managerSide/clubDesc/";
+}
 
 /**
- * 获取报名人员列表
+ * 获取上传部门简介信息的url
  */
-Apis.getEnrollUrl = function () {
-  return baseUrl + "managerSide/findApps/";
-};
+Apis.getUploadDeptDesc = function() {
+    return baseUrl + "managerSide/addDept/";
+}
 
-Apis.getDetailUrl = function () {
-  return baseUrl + "managerSide/findStu/";
-};
+/**
+ * 获取上传社团简介的url
+ */
+Apis.getUploadClubDesc = function() {
+    return baseUrl + "managerSide/clubDesc/";
+}
+
+/**
+ * 获取删除社团简介的url
+ */
+Apis.getDeleteDept = function() {
+    return baseUrl + "managerSide/deleteDept/";
+}
