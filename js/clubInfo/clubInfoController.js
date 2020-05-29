@@ -4,9 +4,23 @@ $(document).ready(function() {
     $("#clubName").text(user.clubName); //社团名字
 
     controller.getClubInfo();
+
+    $("#addClubInfo").click(function() { //编辑社团简介
+        clubInfoView.showAddClubDialog();
+    });
+
     $("#addClubDeptInfo").click(function() { //添加部门功能
         clubInfoView.showAddDeptDialog();
     });
+
+    $("#addRecruitInfo").click(function() {
+        window.location.href = "/publishRecruitInfo.html";
+    });
+
+    $("#changeRecruitInfo").click(function() {
+        window.location.href = "/publishRecruitInfo.html";
+    });
+
     $("#deleteClubDeptInfo").click(function() { //删除部门功能
         var DeptName = prompt("请输入要删除的社团名：", "例如：后台组");
         var element = document.getElementById(DeptName);
@@ -18,20 +32,13 @@ $(document).ready(function() {
         }
     });
 
-    $("#addClubInfo").click(function() {
-        clubInfoView.showAddClubDialog();
-    });
-
-    $("#addRecruitInfo").click(function() {
-        window.location.href = "/publishRecruitInfo.html";
-    });
-
     /*
         clubInfoView.showDeptCard({
             deptName: "前端组",
             deptDesc: "test test test",
             id: 1,
         });
+
         $("#deleteClubDeptInfo").click(function() {
             clubInfoView.showDeleteDeptDialog(1, "部门1");
         });
@@ -59,15 +66,16 @@ var controller = {
             },
             onSuccess: function(result) {
                 if (result != null && result.code == 100) {
-                    clubInfoView.showClubDesc("#desc", result.clubDesc);
+                    clubInfoView.showClubDesc("#desc", result.data.clubDesc);
                     for (i = 0; i < result.data.clubPictureUrl.length; i++) {
                         //TODO creat picture
                     }
                     for (i = 0; i < result.data.dept.length; i++) {
                         clubInfoView.showDeptCard(result.data.dept[i].deptName, result.data.dept[i].deptDesc, result.data.dept[i].deptId);
                     }
-                    //展示招新信息
-
+                    for (i = 0; i < result.data.dept.length; i++) { //展示招新信息
+                        clubInfoView.showRecruitingCard(result.data.dept[i]);
+                    }
                 } else {
                     alert(result.message);
                 }
@@ -79,15 +87,12 @@ var controller = {
                 console.log(status);
             },
         });
-        //信息
-        //修改排版
     },
 
     /**
      * 社团简介信息上传
      */
-    uploadClubDesc: function() {
-        var clubDesc = $("#desc").val();
+    uploadClubDesc: function(clubDesc) {
         NetworkHelper.post({
             url: Apis.getUploadClubDesc(),
             headers: {
@@ -98,8 +103,7 @@ var controller = {
             },
             onSuccess: function(result) {
                 if (result != null && result.code == 100) {
-                    alert("编辑社团简介成功");
-                    clubInfoView.showClubDesc("#desc", result.desc);
+                    location.reload();
                 } else {
                     alert(result.message);
                 }

@@ -33,7 +33,7 @@ var clubInfoView = {
                 controller.uploadClubDesc(content); //上传给后台,并展示卡片
             },
             onError: function(msg) {
-                alert(msg); //这里说要写标题
+                alert(msg);
             },
         });
         dialog.show();
@@ -66,10 +66,42 @@ var clubInfoView = {
                 deptDesc +
                 '</textarea>';
             $("#card-wrapper").append(html);
-
         }
     },
 
+    /**
+     * 展示招新信息
+     * startTime:开始时间
+     * endTime:截止时间
+     * deptId:部门id
+     * qq:qq群
+     * times：考核轮数
+     * maxNum：最大报名人数
+     * recruitNum：招新人数
+     * standard：考核标准
+     * add：补充说明
+     */
+    showRecruitingCard: function(dept) {
+        if (dept.recruitment != null) {
+            var html =
+                '<textarea type="text" id="' +
+                dept.deptName +
+                '" name="' +
+                dept.deptId +
+                '" cols="30" rows="10" maxlength="5000" readonly>' +
+                dept.deptName + "招新信息:" +
+                "\r开始时间：" + dept.recruitment.startTime +
+                "     截止时间：" + dept.recruitment.endTime +
+                "\rQQ群：" + dept.recruitment.qq +
+                "                            考核轮数：" + dept.recruitment.times +
+                "\r最大报名人数：" + dept.recruitment.maxNum +
+                "                   招新人数：" + dept.recruitment.recruitNum +
+                "\r考核标准：" + dept.recruitment.standard +
+                "\r补充说明："
+            '</textarea>';
+            $("#card-wrapper").append(html);
+        }
+    },
     /**
      * 社团信息卡片移除
      * @param DeptName  部门名，同一个部门不会有重复的部门
