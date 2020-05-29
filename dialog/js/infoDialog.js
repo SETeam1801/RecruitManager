@@ -60,12 +60,18 @@ function InfoDialog(op) {
     let content = document.getElementById("contentEdit").value;
 
     if (title == null || title == "") {
-      thisDialog.onError("部门不能为空！");
-      return;
+      if (op.haveTitle == undefined || op.haveTitle) {
+        thisDialog.onError(
+          (op.titleName == null ? "部门" : op.titleName) + "不能为空！"
+        );
+        return;
+      }
     }
 
     if (content == null || content == "") {
-      thisDialog.onError("简介不能为空！");
+      thisDialog.onError(
+        (op.contentName == null ? "简介" : op.contentName) + "不能为空！"
+      );
       return;
     }
     console.log(this);
