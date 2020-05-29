@@ -28,7 +28,16 @@
 .personal-name {
   width: 15vw;
   height: 2vw;
+  margin-top: 20px;
   text-align: center;
+}
+
+div.status-wrapper {
+  display: flex;
+  font-size: 12px;
+  margin: auto;
+  width: 90%;
+  justify-content: space-between;
 }
 
 div.no-personal {
@@ -39,4 +48,48 @@ div.no-personal {
 
 div.no-personal div.no-personal-tip {
   margin-top: 40px;
+}
+
+div.fontground {
+  width: 15vw;
+  height: 15vw;
+  text-align: center;
+  color: white;
+  font-size: 2em;
+  line-height: 15vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+
+div.operator-menu {
+  position: relative;
+  text-align: center;
+  width: 130px;
+  height: 3em;
+  line-height: 3em;
+  background-color: #99ccff;
+  color: white;
+  cursor: pointer;
+  margin-left: 5%;
+  margin-top: 10px;
+}
+
+div.menu-item-wrapper {
+  position: absolute;
+  background-color: #99ccff;
+  width: 130px;
+  display: none;
+}
+
+div.operator-item {
+  padding: 10px;
+  background-color: #99ccff;
+}
+
+div.operator-menu:hover div.menu-item-wrapper {
+  display: block;
+}
+
+div.operator-item:hover {
+  background-color: #003366;
 }

@@ -4,6 +4,8 @@ $(document).ready(function () {
   console.log(url);
   let id = sessionStorage.getItem("personDetailId");
   console.log(id);
+  let deptId = sessionStorage.getItem("personDetailDeptId");
+  console.log(deptId);
 
   $(".person-img").css("background-image", url);
 
@@ -16,7 +18,6 @@ $(document).ready(function () {
       if (result != null) {
         if (result.code == 100) {
           let temp = result.data;
-          console.log(JSON.stringify(result));
           $("#name").text(temp.stuName);
           $("#dept").text(temp.deptName);
           $("#sno").text("学号: " + temp.stuId);
@@ -42,13 +43,68 @@ $(document).ready(function () {
   $("#delete").click(function () {
     let isDelete = confirm("是否将该学生信息彻底删除？");
     if (isDelete) {
-      // TODO 发送网络请求删除该学生信息同时跳转页面
-
-      window.location.href = document.referrer;
+      NetworkHelper.post({
+        url: Apis.getDeleteUrl(),
+        data: {
+          deptId: parseInt(deptId),
+          deleList: [parseInt(id)],
+        },
+        headers: {
+          AUTHORIZATION: "Bearer " + TokenUtils.getToken(),
+        },
+        onSuccess: function (result) {
+          if (result != null) {
+            if (result.code == 100) {
+              alert("删除成功！");
+              // 删除学生后，跳转回原界面并刷新界面
+              window.location.href = document.referrer;
+            } else {
+              alert(result.message);
+            }
+          }
+        },
+        onException: function (e) {
+          console.log(e);
+        },
+        onError: function (status) {
+          console.log(status);
+        },
+      });
     }
   });
 
   $("#refuse").click(function () {
-    let isRefuse;
+    let isRefuse = confirm(
+      "拒绝该学生后，将视该学生未通过考核，进入下一轮后，该学生会从名单上移除"
+    );
+    if (isRefuse) {
+      NetworkHelper.post({
+        url: Apis.getRefuseUrl(),
+        data: {
+          deptId: parseInt(deptId),
+          stopList: [parseInt(id)],
+        },
+        headers: {
+          AUTHORIZATION: "Bearer " + TokenUtils.getToken(),
+        },
+        onSuccess: function (result) {
+          if (result != null) {
+            if (result.code == 100) {
+              alert("拒绝成功！");
+              // 删除学生后，跳转回原界面并刷新界面
+              window.location.href = document.referrer;
+            } else {
+              alert(result.message);
+            }
+          }
+        },
+        onException: function (e) {
+          console.log(e);
+        },
+        onError: function (status) {
+          console.log(status);
+        },
+      });
+    }
   });
 });

@@ -5,7 +5,7 @@ document.write(
     '<div class="title-wrapper" id="titleWrapper">' +
     '<div class="info-title" id="infoTitle">部门</div>' +
     '<div class="title-input">' +
-    '<input type="text" class="title-edit" id="titleEdit" />' +
+    '<input type="text" class="title-edit" id="titleEdit"/>' +
     "</div>" +
     "</div>" +
     '<div class="content-wrapper">' +
@@ -51,8 +51,24 @@ function InfoDialog(op) {
     document.getElementById("infoContent").innerText = op.contentName;
   }
 
+  if (op.titlePlaceHolder != null) {
+    document.getElementById("titleEdit").placeholder = op.titlePlaceHolder;
+  }
+
+  if (op.contentPlaceHolder != null) {
+    document.getElementById("contentEdit").placeholder = op.contentPlaceHolder;
+  }
+
   document.getElementById("titleEdit").value = "";
   document.getElementById("contentEdit").value = "";
+
+  if (op.title != null) {
+    document.getElementById("titleEdit").value = op.title;
+  }
+
+  if (op.content != null) {
+    document.getElementById("contentEdit").value = op.content;
+  }
 
   document.getElementById("infoDialogConfig").onclick = function () {
     let title = document.getElementById("titleEdit").value;
