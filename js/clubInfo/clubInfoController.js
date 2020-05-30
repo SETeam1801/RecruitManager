@@ -4,13 +4,26 @@ $(document).ready(function() {
     $("#clubName").text(user.clubName); //社团名字
 
     controller.getClubInfo();
+
+    $("#addClubInfo").click(function() { //编辑社团简介
+        clubInfoView.showAddClubDialog();
+    });
+
     $("#addClubDeptInfo").click(function() { //添加部门功能
         clubInfoView.showAddDeptDialog();
     });
+
+    $("#addRecruitInfo").click(function() {
+        window.location.href = "/publishRecruitInfo.html";
+    });
+
+    $("#changeRecruitInfo").click(function() {
+        window.location.href = "/publishRecruitInfo.html";
+    });
+
     $("#deleteClubDeptInfo").click(function() { //删除部门功能
         var DeptName = prompt("请输入要删除的社团名：", "例如：后台组");
         var element = document.getElementById(DeptName);
-        console.log(element);
         if (element != null) {
             controller.deleteDept(DeptName);
         } else {
@@ -18,34 +31,15 @@ $(document).ready(function() {
         }
     });
 
-    $("#addClubInfo").click(function() {
-        //TODO等啊墉的新的弹窗
-        if (1) {
-            controller.uploadClubDesc();
+    $("#deleteRecruitInfo").click(function() {
+        var DeptName = prompt("请输入招新信息对应的社团名：", "例如：后台组");
+        var element = document.getElementById(DeptName + "Rec");
+        if (element != null) {
+            controller.deleteRec(DeptName);
         } else {
-
+            alert("没有查找到这个部门的招新信息");
         }
-
-        //clubInfoView.showClubDesc();
     });
-
-    $("#addRecruitInfo").click(function() {
-        window.location.href = "/publishRecruitInfo.html";
-    });
-
-    /*
-        
-
-        clubInfoView.showDeptCard({
-            deptName: "前端组",
-            deptDesc: "test test test",
-            id: 1,
-        });
-
-        $("#deleteClubDeptInfo").click(function() {
-            clubInfoView.showDeleteDeptDialog(1, "部门1");
-        });
-    */
 });
 
 var controller = {
@@ -63,17 +57,22 @@ var controller = {
      */
     getClubInfo: function() {
         NetworkHelper.post({
-            url: Apis.getUploadClubDesc(),
+            url: Apis.getClubInfo(),
             headers: {
                 AUTHORIZATION: "Bearer " + TokenUtils.getToken(),
             },
-            data: {
-                desc: clubDesc,
-            },
             onSuccess: function(result) {
                 if (result != null && result.code == 100) {
-                    alert("编辑社团简介成功");
-                    clubInfoView.showClubDesc("#desc", result.desc);
+                    clubInfoView.showClubDesc("#desc", result.data.clubDesc);
+                    for (i = 0; i < result.data.clubPictureUrl.length; i++) {
+                        //TODO creat picture
+                    }
+                    for (i = 0; i < result.data.dept.length; i++) {
+                        clubInfoView.showDeptCard(result.data.dept[i].deptName, result.data.dept[i].deptDesc, result.data.dept[i].deptId);
+                    }
+                    for (i = 0; i < result.data.dept.length; i++) { //展示招新信息
+                        clubInfoView.showRecruitingCard(result.data.dept[i]);
+                    }
                 } else {
                     alert(result.message);
                 }
@@ -85,15 +84,12 @@ var controller = {
                 console.log(status);
             },
         });
-        //信息
-        //修改排版
     },
 
     /**
-     * 社团简介信息上传(还在写)
+     * 社团简介信息上传
      */
-    uploadClubDesc: function() {
-        var clubDesc = $("#desc").val();
+    uploadClubDesc: function(clubDesc) {
         NetworkHelper.post({
             url: Apis.getUploadClubDesc(),
             headers: {
@@ -104,8 +100,7 @@ var controller = {
             },
             onSuccess: function(result) {
                 if (result != null && result.code == 100) {
-                    alert("编辑社团简介成功");
-                    clubInfoView.showClubDesc("#desc", result.desc);
+                    location.reload();
                 } else {
                     alert(result.message);
                 }
@@ -156,8 +151,7 @@ var controller = {
      * 后台删除 + 页面删除
      */
     deleteDept: function(deptName) {
-        //让后台删除数据的删除函数
-        NetworkHelper.post({
+        NetworkHelper.post({ //让后台删除数据的删除函数
             url: Apis.getDeleteDept(),
             headers: {
                 AUTHORIZATION: "Bearer " + TokenUtils.getToken(),
@@ -168,6 +162,35 @@ var controller = {
             onSuccess: function(result) {
                 if (result != null && result.code == 100) {
                     clubInfoView.moveDeptCard(deptName);
+                } else {
+                    alert(result.message);
+                }
+            },
+            onException: function(err) {
+                console.log(err);
+            },
+            onError: function(status) {
+                console.log(status);
+            },
+        });
+    },
+
+    /**
+     * 删除招新信息
+     * deptNameRec: 部门名
+     */
+    deleteRec: function(deptName) {
+        NetworkHelper.post({
+            url: Apis.getPublishRecruitment(),
+            headers: {
+                AUTHORIZATION: "Bearer " + TokenUtils.getToken(),
+            },
+            data: {
+                deptName: deptName,
+            },
+            onSuccess: function(result) {
+                if (result != null && result.code == 100) {
+                    clubInfoView.moveRecruitingCard(deptName);
                 } else {
                     alert(result.message);
                 }

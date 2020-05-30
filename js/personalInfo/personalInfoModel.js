@@ -64,7 +64,7 @@ var model = {
     });
   },
 
-  nextRound: function () {
+  nextRound: function (id) {
     NetworkHelper.get({
       url: Apis.getNextRoundUrl() + id + "/",
       headers: {

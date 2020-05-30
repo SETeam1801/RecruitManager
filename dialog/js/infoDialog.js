@@ -91,8 +91,8 @@ function InfoDialog(op) {
       return;
     }
     console.log(this);
-    document.getElementById("infoDialogBg").style.display = "none";
     thisDialog.onSuccess(title, content);
+    document.getElementById("infoDialogBg").style.display = "none";
   };
 
   document.getElementById("infoDialogCancel").onclick = function () {

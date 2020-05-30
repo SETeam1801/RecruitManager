@@ -41,7 +41,7 @@ $(document).ready(function () {
       "确定要进入下一轮吗？您是否已经发邮件通知学生了？可以点击发送邮件功能通知学生考核情况，然后再进入下一轮！"
     );
     if (isEnter) {
-      model.nextRound();
+      model.nextRound(model.getDeptId());
     }
   });
 });
