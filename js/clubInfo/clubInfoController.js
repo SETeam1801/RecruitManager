@@ -24,7 +24,6 @@ $(document).ready(function() {
     $("#deleteClubDeptInfo").click(function() { //删除部门功能
         var DeptName = prompt("请输入要删除的社团名：", "例如：后台组");
         var element = document.getElementById(DeptName);
-        console.log(element);
         if (element != null) {
             controller.deleteDept(DeptName);
         } else {
@@ -32,17 +31,15 @@ $(document).ready(function() {
         }
     });
 
-    /*
-        clubInfoView.showDeptCard({
-            deptName: "前端组",
-            deptDesc: "test test test",
-            id: 1,
-        });
-
-        $("#deleteClubDeptInfo").click(function() {
-            clubInfoView.showDeleteDeptDialog(1, "部门1");
-        });
-    */
+    $("#deleteRecruitInfo").click(function() {
+        var DeptName = prompt("请输入招新信息对应的社团名：", "例如：后台组");
+        var element = document.getElementById(DeptName + "Rec");
+        if (element != null) {
+            controller.deleteRec(DeptName);
+        } else {
+            alert("没有查找到这个部门的招新信息");
+        }
+    });
 });
 
 var controller = {
@@ -154,8 +151,7 @@ var controller = {
      * 后台删除 + 页面删除
      */
     deleteDept: function(deptName) {
-        //让后台删除数据的删除函数
-        NetworkHelper.post({
+        NetworkHelper.post({ //让后台删除数据的删除函数
             url: Apis.getDeleteDept(),
             headers: {
                 AUTHORIZATION: "Bearer " + TokenUtils.getToken(),
@@ -166,6 +162,35 @@ var controller = {
             onSuccess: function(result) {
                 if (result != null && result.code == 100) {
                     clubInfoView.moveDeptCard(deptName);
+                } else {
+                    alert(result.message);
+                }
+            },
+            onException: function(err) {
+                console.log(err);
+            },
+            onError: function(status) {
+                console.log(status);
+            },
+        });
+    },
+
+    /**
+     * 删除招新信息
+     * deptNameRec: 部门名
+     */
+    deleteRec: function(deptName) {
+        NetworkHelper.post({
+            url: Apis.getPublishRecruitment(),
+            headers: {
+                AUTHORIZATION: "Bearer " + TokenUtils.getToken(),
+            },
+            data: {
+                deptName: deptName,
+            },
+            onSuccess: function(result) {
+                if (result != null && result.code == 100) {
+                    clubInfoView.moveRecruitingCard(deptName);
                 } else {
                     alert(result.message);
                 }

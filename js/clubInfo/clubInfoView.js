@@ -25,10 +25,19 @@ var clubInfoView = {
      * 展示编辑社团简介的弹窗
      */
     showAddClubDialog: function() {
+        var element = document.getElementById("#desc");
+        var title = "";
+        var content = "";
+        if (element != null) {
+            title = element.id;
+            content = element.desc;
+        }
         let dialog = new InfoDialog({
             haveTitle: false,
             titleName: "标题",
             contentName: "社团简介",
+            title: title,
+            content: content,
             onSuccess: function(title, content) {
                 controller.uploadClubDesc(content); //上传给后台,并展示卡片
             },
@@ -85,7 +94,7 @@ var clubInfoView = {
         if (dept.recruitment != null) {
             var html =
                 '<textarea type="text" id="' +
-                dept.deptName +
+                dept.deptName + "Rec" +
                 '" name="' +
                 dept.deptId +
                 '" cols="30" rows="10" maxlength="5000" readonly>' +
@@ -119,6 +128,7 @@ var clubInfoView = {
             haveTitle: true,
             titleName: "部门",
             contentName: "部门简介",
+            ///TODO
             onSuccess: function(title, content) {
                 controller.addDept(title, content);
             },
@@ -130,12 +140,12 @@ var clubInfoView = {
     },
 
     /**
-     * 展示是否删除该部门的提示弹窗
+     * 
+     * 移除招新信息的卡片
      */
-    showDeleteDeptDialog: function(id, deptName) {
-        var ret = confirm("请问您确定要删除" + deptName + "的信息吗？");
-        if (ret == ture) {
-            controller.configDelete(id, deptName);
-        }
-    },
+    moveRecruitingCard: function(deptName) {
+        var element = document.getElementById(deptName + "Rec");
+        element.parentNode.removeChild(element);
+        console.log("fuck");
+    }
 };
