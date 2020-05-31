@@ -1,0 +1,31 @@
+@media (max-width: 500px) {
+  div.nav-wrapper {
+    display: block;
+  }
+  div.info-wrapper {
+    padding: 0px;
+    margin-top: 7vh;
+  }
+  div#username {
+    background-color: rgb(222, 222, 222);
+    text-align: center;
+    width: auto;
+  }
+
+  div.menu-wrapper {
+    display: block;
+    margin: 0px;
+  }
+
+  div.menu-item {
+    background-image: none;
+    width: 100%;
+    text-align: center;
+    height: auto;
+    width: 80vw;
+    background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+    padding: 1em;
+    margin-top: 4vh;
+    color: white;
+  }
+}

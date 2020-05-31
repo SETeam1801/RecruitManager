@@ -5,47 +5,45 @@ placeholder自动消失。
 */
 
 input:focus::-webkit-input-placeholder {
-    color: transparent;
+  color: transparent;
 }
 
 input:focus::-moz-placeholder {
-    /* Mozilla Firefox 19+ */
-    color: transparent;
+  /* Mozilla Firefox 19+ */
+  color: transparent;
 }
 
 input:focus:-ms-input-placeholder {
-    /* Internet Explorer 10+ */
-    color: transparent;
+  /* Internet Explorer 10+ */
+  color: transparent;
 }
-
 
 /*
 右侧用户信息卡片样式
 */
 
 .user-info-wrapper {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .user-info {
-    width: 140px;
-    height: 50px;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 50px;
-    margin: 30px;
-    margin-right: 5%;
+  width: 140px;
+  height: 50px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50px;
+  margin: 30px;
+  margin-right: 5%;
 }
-
 
 /*
 线的样式
 */
 
 .line {
-    height: 2px;
-    background-color: black;
-    width: 90%;
-    margin: auto;
+  height: 2px;
+  background-color: black;
+  width: 90%;
+  margin: auto;
 }
