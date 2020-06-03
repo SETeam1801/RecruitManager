@@ -181,7 +181,7 @@ var controller = {
      */
     deleteRec: function(deptName) {
         NetworkHelper.post({
-            url: Apis.getPublishRecruitment(),
+            url: Apis.getPublishRecruitment(), ///TODO等后台添加
             headers: {
                 AUTHORIZATION: "Bearer " + TokenUtils.getToken(),
             },
