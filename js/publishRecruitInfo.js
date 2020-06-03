@@ -30,7 +30,7 @@ function showDept(id, deptName) {
 }
 
 function select(dept) {
-  let deptName = dept.innerHTML;
+  let deptName = $("#" + dept.id).text();
   console.log("deptName:" + deptName);
   deptId = dept.id;
   $("#selectedDeptName").text("招新部门 -> " + deptName);
