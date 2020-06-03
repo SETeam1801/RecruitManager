@@ -107,15 +107,19 @@ var view = {
               failBody: failBody,
             });
           },
+
           onError: function (msg) {
             alert(msg);
           },
         });
+        console.log(passTitle);
+        failDialog.show();
       },
       onError: function (msg) {
         alert(msg);
       },
     });
+    passDialog.show();
   },
 };
 

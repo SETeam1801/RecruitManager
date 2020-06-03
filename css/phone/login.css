@@ -1,0 +1,25 @@
+@media (max-width: 500px) {
+  div.container {
+    height: 100vh;
+    width: 100vw;
+  }
+  div.login-wrapper {
+    display: block;
+    text-align: center;
+  }
+  img.logo {
+    width: 40vw;
+    height: 40vw;
+    margin-top: 7vh;
+  }
+  div.recruit-name {
+    display: none;
+  }
+  div.form-wrapper {
+    margin: 20px;
+  }
+
+  div.form-wrapper button {
+    margin-top: 20px;
+  }
+}

@@ -47,7 +47,7 @@ $(document).ready(function () {
         url: Apis.getDeleteUrl(),
         data: {
           deptId: parseInt(deptId),
-          deleList: [parseInt(id)],
+          deleteList: [parseInt(id)],
         },
         headers: {
           AUTHORIZATION: "Bearer " + TokenUtils.getToken(),
@@ -57,7 +57,7 @@ $(document).ready(function () {
             if (result.code == 100) {
               alert("删除成功！");
               // 删除学生后，跳转回原界面并刷新界面
-              window.location.href = document.referrer;
+              self.location.replace(document.referrer);
             } else {
               alert(result.message);
             }
@@ -92,7 +92,7 @@ $(document).ready(function () {
             if (result.code == 100) {
               alert("拒绝成功！");
               // 删除学生后，跳转回原界面并刷新界面
-              window.location.href = document.referrer;
+              self.location.replace(document.referrer);
             } else {
               alert(result.message);
             }
